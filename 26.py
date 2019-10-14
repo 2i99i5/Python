@@ -23,3 +23,46 @@
 “ед”: [“шт.”]
 }
 """
+def usr_ans_digit_check(mess): #функция проверки ввода числового значения
+    answer = input(mess)
+    while answer.isdigit() == False:
+        print("Введите натуральное число")
+        answer = input(mess)
+    return int(answer)
+
+
+goods = []  #создаем пустой список
+"""
+i = 1  #счётчик
+while True:
+    out = input("Для продолжения нажмите любую клавишу или нажмите 'Q' для выхода") #возможность выхода из цикла
+    if out.lower() == "q":
+        break
+    else:
+        title = input("название: ")
+        price = usr_ans_digit_check("цена: ")
+        quantity = usr_ans_digit_check("количество: ")
+        measure = input("ед: ")
+        goods.append((i, {"название": title, "цена": price, "количество": quantity, "eд": measure}))
+        i += 1
+"""
+# для тестирования
+goods = [
+    (1, {"название": "компьютер", "цена": 20000, "количество": 5, "eд": "шт."}),
+    (2, {"название": "принтер", "цена": 6000, "количество": 2, "eд": "шт."}),
+    (3, {"название": "сканер", "цена": 2000, "количество": 7, "eд": "шт."})
+]
+
+print(goods)
+dict_goods = {}
+title = []
+price = []
+quantity = []
+measure = []
+for el in goods:
+    pass
+dict_goods["название"] = title
+dict_goods["цена"] = price
+dict_goods["количество"] = quantity
+dict_goods["eд"] = measure
+print(dict_goods)
