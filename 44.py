@@ -8,17 +8,8 @@
 Элементы вывести в порядке их следования в исходном списке.
 Для выполнения задания обязательно использовать генератор.
 """
-list1 = [10, 25, 9, 35, 33, 35, 40, 40, 45]
-print(list1)
-count = 0
-for i in list1:
-    for j in list1:
-        if i == j:
-            count += 1
-    while count > 1:
-        list1.remove(i)
-        count -=1
-    count = 0
-print(list1)
-# r_list = [el for el in list1 for j in list2 if el == j]
-# print(f"Конечный список: {r_list}")
+list1 = [10, 25, 9, 35, 33, 35, 40, 40, 45, 40, 25]
+print(f"Начальный список: {list1}")
+
+r_list = [el for el in list1 if list1.count(el) == 1]
+print(f"Конечный список без повторных элементов: {r_list}")
