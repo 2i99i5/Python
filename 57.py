@@ -16,12 +16,13 @@
 Итоговый список сохранить в виде json-объекта в соответствующий файл.
 Подсказка: использовать менеджер контекста.
 """
-import json
 
+import json
+import os
 
 try:
-
-    with open("57_txt.txt") as file:
+    path = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(path, "57_txt.txt")) as file:
         res_list = []
         firm = {}
         ave_profit = 0
@@ -39,7 +40,7 @@ try:
         firm = {}
         firm['average_profit'] = ave_profit
         res_list.append(firm)
-    with open("57_json.json", "w") as write_f:
+    with open(os.path.join(path, "57_json.json"), "w") as write_f:
         json.dump(res_list, write_f)  # записываем json объект в файл
 except IOError as e:
     print(e)

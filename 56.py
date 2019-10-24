@@ -10,9 +10,13 @@
 Сформировать словарь, содержащий название предмета и общее количество занятий по нему.
 Вывести словарь на экран.
 """
+
+import os
+
 try:
+    path = os.path.dirname(os.path.abspath(__file__))
     subject = dict()
-    with open("56_txt.txt") as file:
+    with open(os.path.join(path, "56_txt.txt")) as file:
         for line in file:
             arr_line = line.replace("\n","").split(":")  # удаляем перенос строки, создаем список
             arr_line[1] = arr_line[1].split(",")

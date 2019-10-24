@@ -7,8 +7,11 @@
 выполнить подсчет количества строк, количества слов в каждой строке.
 """
 
+import os
+
 try:
-    with open("52_txt.txt", "r") as file:
+    path = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(path, "52_txt.txt")) as file:
         count_l = 0
         for line in file:
             count_l +=1

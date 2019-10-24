@@ -9,8 +9,11 @@
 Выполнить подсчет средней величины дохода сотрудников.
 """
 
+import os
+
 try:
-    with open("53_txt.txt", "r") as file:
+    path = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(path, "53_txt.txt"), "r") as file:
         ave_sal = 0
         count = 0
         print(f"Сотрудники, оклад которых меньше 20тыс.:")

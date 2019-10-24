@@ -12,9 +12,13 @@ Four — 4
 При этом английские числительные должны заменяться на русские.
 Новый блок строк должен записываться в новый текстовый файл.
 """
+
+import os
+
 dict_ru = {'1': 'Один', '2': 'Два', '3': 'Три', '4': 'Четыре'}  # словарь с ru  числительными
 try:
-    with open("54_en.txt", "r") as file_en:
+    path = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(path, "54_en.txt"), "r") as file_en:
         file_ru = open("54_ru.txt", "w")
         for line in file_en:
             arr_line = line.replace("\n","").split(" — ")  # удаляем перенос строки, создаем список

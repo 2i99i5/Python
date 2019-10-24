@@ -6,9 +6,11 @@
 Создать программно файл в текстовом формате, записать в него построчно данные,
 вводимые пользователем. Об окончании ввода данных свидетельствует пустая строка.
 """
+import os
 
 try:
-    with open("51_txt.txt", "w") as file:
+    path = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(path, "51_txt.txt"), "w") as file:
         while True:
             string = input("Введите строку: ")
             if string != "":
