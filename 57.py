@@ -10,7 +10,8 @@
 Необходимо построчно прочитать файл, вычислить прибыль каждой компании,
 а также среднюю прибыль. Если фирма получила убытки, в расчет средней прибыли ее не включать.
 Далее реализовать список. Он должен содержать словарь с фирмами и их прибылями,
-а также словарь со средней прибылью.
+а также словарь со средней прибылью. Если фирма получила убытки,
+также добавить ее в словарь (со значением убытков).
 Пример списка: [{‘firm_1’: 5000, ‘firm_2’: 3000, ‘firm_3’: 1000}, {‘average_profit’: 2000}].
 Итоговый список сохранить в виде json-объекта в соответствующий файл.
 Подсказка: использовать менеджер контекста.
@@ -19,15 +20,22 @@ import json
 
 
 try:
-    res_list = []
-    firm = {}
+
     with open("57_txt.txt") as file:
+        res_list = []
+        firm = {}
+        ave_profit = 0
+        count = 0
         for line in file:
+
             arr_line = line.replace("\n","").split("   ")  # удаляем перенос строки, создаем список
-            if arr_line[2].isdigit() and arr_line[3].isdigit() and (int(arr_line[2]) - int(arr_line[3])) > 0:
-                    firm[arr_line[0]] = int(arr_line[2]) - int(arr_line[3])  # вычисляем прибыль
+            if arr_line[2].isdigit() and arr_line[3].isdigit():
+                firm[arr_line[0]] = int(arr_line[2]) - int(arr_line[3])  # вычисляем прибыль
+                if firm[arr_line[0]] > 0:
+                    ave_profit += firm[arr_line[0]]
+                    count += 1
         res_list.append(firm)
-        ave_profit = sum(firm.values()) / len(firm)  # средняя прибыль фирм с положительной прибылью
+        ave_profit = ave_profit / count  # средняя прибыль фирм с положительной прибылью
         firm = {}
         firm['average_profit'] = ave_profit
         res_list.append(firm)
