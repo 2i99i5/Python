@@ -18,7 +18,7 @@ class Road:
         self._length = length
         self._width = width
 
-    def mass_calc(self, weight = 25, thickness = 1):
+    def mass_calc(self, weight = 25, thickness = 1):  # масса кв.м в кг, толщина слоя в см
         self.thickness = thickness
         self.weight = weight
         print(f"Масса дороги: {self._length * self._width * weight * thickness / 100}кг")
