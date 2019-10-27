@@ -19,7 +19,7 @@ class Worker:
         self.name = name
         self.surname = surname
         self.position = position
-        self._income = income
+        self._income: dict = income
 
 class Position(Worker):
     def get_full_name(self):
