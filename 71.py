@@ -32,8 +32,9 @@ class Matrix:
             i += 1
         return Matrix(res_array)
 
-mat1 = Matrix([[1, 2, 3, 0], [4, 5, 6, 3], [7, 8, 9, 3]])
-print(mat1, "\n")
-mat2 = Matrix([[7, 8, 9, 5], [4, 5, 6, 5], [1, 2, 3, 6]])
-print(mat2, "\n")
-print(mat1 + mat2)
+if name = if __name__ == '__main__':
+    mat1 = Matrix([[1, 2, 3, 0], [4, 5, 6, 3], [7, 8, 9, 3]])
+    print(mat1, "\n")
+    mat2 = Matrix([[7, 8, 9, 5], [4, 5, 6, 5], [1, 2, 3, 6]])
+    print(mat2, "\n")
+    print(mat1 + mat2)

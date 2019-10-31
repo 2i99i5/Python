@@ -35,7 +35,9 @@ class Suit(Clothes):  # костюм
     def calculate(self):
         return 2 * self.h + 0.3
 
-c = Coast(54, "пальто")
-print(c.calculate)
-s = Suit(177, "пиджак")
-print(s.calculate)
+
+if name = if __name__ == '__main__':
+    c = Coast(54, "пальто")
+    print(c.calculate)
+    s = Suit(177, "пиджак")
+    print(s.calculate)
