@@ -36,7 +36,7 @@ class Suit(Clothes):  # костюм
         return 2 * self.h + 0.3
 
 
-if name = if __name__ == '__main__':
+if __name__ == '__main__':
     c = Coast(54, "пальто")
     print(c.calculate)
     s = Suit(177, "пиджак")
