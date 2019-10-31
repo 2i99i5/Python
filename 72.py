@@ -16,12 +16,26 @@ class Clothes:
     def __init__(self, name):
         self.name = name
 
+
 class Coast(Clothes):  # пальто
-    def __init__(self, v):
+    def __init__(self, v, name):
+        super(Coast, self).__init__(self)
         self.v = v
-        super().name
+
+    @property
+    def calculate(self):
+        return self.v / 6.5 + 0.5
 
 class Suit(Clothes):  # костюм
-    def __init__(self, h):
+    def __init__(self, h, name):
         self.h = h
+        super(Suit, self).__init__(self)
 
+    @property
+    def calculate(self):
+        return 2 * self.h + 0.3
+
+c = Coast(54, "пальто")
+print(c.calculate)
+s = Suit(177, "пиджак")
+print(s.calculate)
