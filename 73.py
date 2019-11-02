@@ -51,19 +51,32 @@ class B_Cell:
         return self.__cells
 
     def __add__(self, other):
-        return B_Cell(self.cells + other.cells)
+        if isinstance(other, B_Cell):
+            return B_Cell(self.cells + other.cells)
+        else:
+            raise B_Cell_Error("Требуется ввести вторую Клетку")
 
     def __sub__(self, other):
-        if self.cells - other.cells > 0:
-            return B_Cell(self.cells - other.cells)
+        if isinstance(other, B_Cell):
+            if self.cells - other.cells > 0:
+                return B_Cell(self.cells - other.cells)
+            else:
+                raise B_Cell_Error("Клетка не может быть меньше или равна нулю")
         else:
-            raise B_Cell_Error("Клетка не может быть меньше или равна нулю")
+            raise B_Cell_Error("Требуется ввести вторую Клетку")
+
 
     def __mul__(self, other):
-        return B_Cell(self.cells * other.cells)
+        if isinstance(other, B_Cell):
+            return B_Cell(self.cells * other.cells)
+        else:
+            raise B_Cell_Error("Требуется ввести вторую Клетку")
 
     def __truediv__(self, other):
-        return B_Cell(int(self.cells / other.cells))
+        if isinstance(other, B_Cell):
+            return B_Cell(int(self.cells / other.cells))
+        else:
+            raise B_Cell_Error("Требуется ввести вторую Клетку")
 
     def __str__(self):
         return f"{'*'}" * (self.cells)
@@ -79,6 +92,6 @@ if __name__ == '__main__':
     b = B_Cell(11)
     print(a.make_order(10))
     print(a + b)
-    print(b - a)
+    print(a - b)
     print(a / b)
     print((a * b).make_order(22))
