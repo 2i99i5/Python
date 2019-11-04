@@ -9,29 +9,31 @@
 @staticmethod, должен проводить валидацию числа, месяца и года (например,
 месяц — от 1 до 12). Проверить работу полученной структуры на реальных данных.
 """
-class Date_Error(Exception):
-    def __init__(self, message: str):
-        self.message = message
-        Exception.__init__(self)
-
-    def __str__(self):
-        return self.message
+from datetime import datetime
 
 class Date:
-    def __init__(self, date: str):
-        if isinstance(date, str):
+    def __init__(self, date):
+        if not Date.validate(date):
             self.date = date
-        else:
-            raise TypeError
-
-    @classmethod
-    def make_num(cls):
-        pass
 
     @staticmethod
-    def valid_num:
-        pass
+    def validate(date_text):
+        try:
+            datetime.strptime(date_text, '%d-%m-%Y')
+        except ValueError:
+            raise ValueError("Incorrect data format, should be DD-MM-YYYY")
+
+    @classmethod
+    def make_num(cls, date):
+        numlist = []
+        for num in date.split("-"):
+            numlist.append(int(num))
+        return numlist
+
+
 
 
 if __name__ == '__main__':
-    pass
+    d = Date("04-12-2019")
+    print(d.make_num("05-12-2019"))
+    print(Date.validate("35-11-2019"))
